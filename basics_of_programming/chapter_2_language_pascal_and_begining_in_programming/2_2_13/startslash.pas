@@ -4,28 +4,31 @@ var
     s1: string = '';
     s2: string = '';
     s3: string = '';
-    n, i, m: integer;
+    n, i, k: integer;
 begin
-    for i := 1 to 20 do
+    k := 10;
+
+    for i := 1 to k - 2 do
         s := s + '  ';
 
-    for n := 1 to 20 do
+    s := s + ' ';
+    s3 := s;
+    s2 := ' ';
+
+    for n := 1 to k do
     begin
-        if (n = 1) or (n = 20) then
+        if (n = 1) or (n = k) then
             writeln(s1 + '*' + s + '*' + s + '*')
         else
         begin
-            s3 := s;
-            delete(s3, length(s3) - 1, 1);
-            {s2 := s2 + ' ';}
-            for m := 1 to (n - 1) * 2 do
-                begin
-                    s2 := s2 + ' ';
-                    delete(s3, length(s3) - 1, 1);
-                end;
+            delete(s3, length(s3) - 1, 2);
+            if n >= 3 then
+                s2 := s2 + '  ';
             writeln(s1 + '*' + s3 + '*' + s2 + '*' + s3 + '*' + s2 +'*');
-            s2 := '';
         end;
-        s1 := s1 + ' '
+        if n < k then
+            s1 := s1 + ' '
+        else
+            s1 := '';
     end
 end.
