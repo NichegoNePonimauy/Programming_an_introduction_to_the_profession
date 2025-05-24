@@ -11,8 +11,8 @@ end;
 procedure PrintDigit(input: word);
 begin
     if input > 0 then begin
-        write(input mod 10, ' ');
         PrintDigit(input div 10);
+        write(input mod 10, ' ');
     end;
 end;
 
